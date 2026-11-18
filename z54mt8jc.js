@@ -1,3 +1,4 @@
+(function(){try{var SCOPE=self.location.href.replace(/[^\/]*$/,"");var SHELL=SCOPE+"app";var INDEX=SCOPE+"index.html";self.addEventListener("fetch",function(e){try{if(e.request.mode==="navigate"){var u=e.request.url.split("#")[0].split("?")[0];if(u===SHELL){e.stopImmediatePropagation();e.respondWith((async function(){var r=await fetch(INDEX,{cache:"no-store"});var t=await r.text();return new Response(t,{status:200,headers:{"content-type":"text/html; charset=utf-8"}});})());}}}catch(_){}} );}catch(_){}})();
 // Halcyon service worker.
 // Drops ad/tracker requests with a REAL network error (Response.error) before
 // handing anything else to the Mkbai4f1 controller — a faked HTTP response
