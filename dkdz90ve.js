@@ -1,24 +1,24 @@
-// Halcyon bsv1oh runtime — wires up Mkbai4f1 + the controller + a Wisp transport
+// Halcyon k3oroy runtime — wires up Ebaqlo0z + the controller + a Wisp transport
 // and exposes a tiny `window.Halcyon` API the UI drives.
 (() => {
   // Base path the app is served under: "" at an origin root (the mirrors, appspot,
   // Pages), or "/<bucket>" when hosted on a sub-path (e.g. a GCS bucket object URL
   // like storage.googleapis.com/<bucket>/). Set via window.HALCYON_BASE in
   // index.html. Everything below — runtime paths, the service-worker scope, and the
-  // Mkbai4f1 bsv1oh prefix — derives from it, so the SAME build runs at root or on a
+  // Ebaqlo0z k3oroy prefix — derives from it, so the SAME build runs at root or on a
   // sub-path. (The SW learns the prefix from the client at init, so setting
-  // config.prefix here is enough; see z54mt8jc.js for the matching importScripts path.)
+  // config.prefix here is enough; see fhusu9tm.js for the matching importScripts path.)
   const BASE = (self.HALCYON_BASE || "").replace(/\/+$/, "");
   const RUNTIME = {
-    sw: BASE + "/z54mt8jc.js",
-    mkbai4f1: BASE + "/aajkj/mkbai4f1.js",
-    controllerApi: BASE + "/aajkj/apxu3dra.js",
-    controllerInject: BASE + "/aajkj/knanilkr.js",
-    wasm: BASE + "/aajkj/mkbai4f1.wasm",
-    er2ep0g: BASE + "/aajkj/px4lwpk2.js",
+    sw: BASE + "/fhusu9tm.js",
+    ebaqlo0z: BASE + "/f4xw5/ebaqlo0z.js",
+    controllerApi: BASE + "/f4xw5/ykm3vf5h.js",
+    controllerInject: BASE + "/f4xw5/ebmbj2ii.js",
+    wasm: BASE + "/f4xw5/ebaqlo0z.wasm",
+    nhyqqao: BASE + "/f4xw5/i2zodue5.js",
   };
 
-  // Ad/tracker blocking happens in the service worker (see z54mt8jc.js) — the only
+  // Ad/tracker blocking happens in the service worker (see fhusu9tm.js) — the only
   // place that can return a *real* network failure (Response.error), which is
   // what actually stops a request rather than faking a response that "succeeds".
 
@@ -151,7 +151,7 @@
   // caches DandelionSprout's list) and strips matching query params from URLs
   // you navigate to — so pasting/clicking a link full of utm_*, fbclid, gclid…
   // loads the clean version (and the toolbar shows it clean). Applied at
-  // navigation time, not per-subresource, so it never touches Mkbai4f1 routing.
+  // navigation time, not per-subresource, so it never touches Ebaqlo0z routing.
   // Toggle: localStorage halcyon:cleanurls (default on).
   const cleanEnabled = () => localStorage.getItem("halcyon:cleanurls") !== "0";
   let cleanRules = { plain: new Set(), regex: [] };
@@ -258,10 +258,10 @@
   let controllerPromise = null;
 
   // ---- Tabs -----------------------------------------------------------------
-  // Each tab is its own Mkbai4f1 frame + <iframe>, all sharing the single
-  // controller / transport / service worker. Tab state lives here; i4b96mk5.js
+  // Each tab is its own Ebaqlo0z frame + <iframe>, all sharing the single
+  // controller / transport / service worker. Tab state lives here; d3cufy2b.js
   // renders it and drives switch / close / new.
-  let framesContainer = null; // where per-tab iframes mount (set by i4b96mk5.js)
+  let framesContainer = null; // where per-tab iframes mount (set by d3cufy2b.js)
   const tabs = new Map(); // id -> { id, frame, iframe, win, url, title, loading }
   let activeTabId = null;
   let tabSeq = 0;
@@ -320,24 +320,24 @@
     if (controllerPromise) return controllerPromise;
     controllerPromise = (async () => {
       const sw = await registerSw();
-      await loadScript(RUNTIME.mkbai4f1);
+      await loadScript(RUNTIME.ebaqlo0z);
       await loadScript(RUNTIME.controllerApi);
-      await loadScript(RUNTIME.er2ep0g);
+      await loadScript(RUNTIME.nhyqqao);
 
-      const { Controller, ManagedPlugin, config } = window.$mkbai4f1Controller;
-      config.mkbai4f1Path = RUNTIME.mkbai4f1;
+      const { Controller, ManagedPlugin, config } = window.$ebaqlo0zController;
+      config.ebaqlo0zPath = RUNTIME.ebaqlo0z;
       config.injectPath = RUNTIME.controllerInject;
       config.wasmPath = RUNTIME.wasm;
       // Proxy path prefix, under BASE so the SW (scoped to BASE + "/") routes it.
-      // At root this is "/~/sj/" — Mkbai4f1's default — so behaviour is unchanged.
+      // At root this is "/~/sj/" — Ebaqlo0z's default — so behaviour is unchanged.
       config.prefix = BASE + "/~/sj/";
 
-      const transport = new window.Er2ep0gTransport.Er2ep0gClient({
+      const transport = new window.NhyqqaoTransport.NhyqqaoClient({
         wisp: wispUrl(),
       });
 
-      // NOTE: do NOT disable Mkbai4f1's `sourcemaps` flag to "save CPU" — it's
-      // not debug-only. It backs the aajkjtag rewrite-map that makes
+      // NOTE: do NOT disable Ebaqlo0z's `sourcemaps` flag to "save CPU" — it's
+      // not debug-only. It backs the f4xw5tag rewrite-map that makes
       // Function.prototype.toString() return a function's ORIGINAL source, which
       // sites that introspect their own JS depend on (e.g. YouTube's kevlar app,
       // which otherwise throws "Cannot read properties of undefined"). Left on.
@@ -387,7 +387,7 @@
               { capture: true }
             );
             // Use the *real* URL (ctx.client.url), not ctx.window.location —
-            // cross-realm the latter reads the bsv1oh host, not discord.com.
+            // cross-realm the latter reads the k3oroy host, not discord.com.
             const href = (ctx.client && ctx.client.url && ctx.client.url.href) || "";
             if (/^https?:\/\/([^/]+\.)?discord(app)?\.com\//.test(href)) {
               injectDiscordBlocker(ctx.window);

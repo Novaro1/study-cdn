@@ -1,4 +1,4 @@
-(function(g,f){if(typeof exports=="object"&&typeof module<"u"){module.exports=f(require)}else if("function"==typeof define && define.amd){define("Er2ep0gTransport",["fs","path"],function(_d_0,_d_1){var d={"fs": _d_0,"path": _d_1},r=function(m){if(m in d) return d[m];if(typeof require=="function") return require(m);throw new Error("Cannot find module '"+m+"'")};return f(r)})}else {var gN={"fs":"fs","path":"path"},gReq=function(r){var mod = r in gN ? g[gN[r]] : g[r]; return mod };g["Er2ep0gTransport"]=f(gReq)}}(typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : this,function(require){var exports={};var __exports=exports;var module={exports};
+(function(g,f){if(typeof exports=="object"&&typeof module<"u"){module.exports=f(require)}else if("function"==typeof define && define.amd){define("NhyqqaoTransport",["fs","path"],function(_d_0,_d_1){var d={"fs": _d_0,"path": _d_1},r=function(m){if(m in d) return d[m];if(typeof require=="function") return require(m);throw new Error("Cannot find module '"+m+"'")};return f(r)})}else {var gN={"fs":"fs","path":"path"},gReq=function(r){var mod = r in gN ? g[gN[r]] : g[r]; return mod };g["NhyqqaoTransport"]=f(gReq)}}(typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : this,function(require){var exports={};var __exports=exports;var module={exports};
 "use strict";
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -21,13 +21,13 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
-  Er2ep0gClient: () => Er2ep0gClient,
-  default: () => Er2ep0gClient
+  NhyqqaoClient: () => NhyqqaoClient,
+  default: () => NhyqqaoClient
 });
 module.exports = __toCommonJS(main_exports);
 
-// node_modules/.pnpm/px4lwpk2.js@0.7.4/node_modules/px4lwpk2.js/er2ep0g_full.mjs
-var er2ep0g = function() {
+// node_modules/.pnpm/i2zodue5.js@0.7.4/node_modules/i2zodue5.js/nhyqqao_full.mjs
+var nhyqqao = function() {
   var Module = typeof Module != "undefined" ? Module : {};
   var moduleOverrides = Object.assign({}, Module);
   var arguments_ = [];
@@ -5589,10 +5589,10 @@ var er2ep0g = function() {
     510: "Not Extended",
     511: "Network Authentication Required"
   };
-  const copyright_notice = `px4lwpk2.js is licensed under the GNU LGPL v3. You can find the license text and source code at the project's git repository: https://github.com/ading2210/px4lwpk2.js
+  const copyright_notice = `i2zodue5.js is licensed under the GNU LGPL v3. You can find the license text and source code at the project's git repository: https://github.com/ading2210/i2zodue5.js
 
 Several C libraries are used, and their licenses are listed below:
-- er2ep0g: curl License (https://curl.se/docs/copyright.html)
+- nhyqqao: curl License (https://curl.se/docs/copyright.html)
 - mbedtls: Apache License 2.0 (https://github.com/Mbed-TLS/mbedtls/blob/development/LICENSE)
 - cjson: MIT License (https://github.com/DaveGamble/cJSON/blob/master/LICENSE)
 - zlib: zlib License (https://www.zlib.net/zlib_license.html)
@@ -5692,8 +5692,8 @@ Several C libraries are used, and their licenses are listed below:
       }, 0);
     }
     event_loop_func() {
-      let er2ep0g_active = _session_get_active(this.session_ptr);
-      if (er2ep0g_active || this.active_requests) {
+      let nhyqqao_active = _session_get_active(this.session_ptr);
+      if (nhyqqao_active || this.active_requests) {
         _session_perform(this.session_ptr);
       } else {
         clearInterval(this.event_loop);
@@ -5991,7 +5991,7 @@ Several C libraries are used, and their licenses are listed below:
         request_options.headers["Sec-Websocket-Protocol"] = this.protocols.join(", ");
       }
       if (this.options.verbose) {
-        request_options._er2ep0g_verbose = 1;
+        request_options._nhyqqao_verbose = 1;
       }
       this.http_handle = this.create_request(this.url, data_callback, finish_callback, headers_callback);
       c_func(_http_set_options, [this.http_handle, JSON.stringify(request_options), null, 0]);
@@ -6256,14 +6256,14 @@ Several C libraries are used, and their licenses are listed below:
   var version_dict = null;
   var api = null;
   var main_session = null;
-  const er2ep0g_version = "0.7.4";
+  const nhyqqao_version = "0.7.4";
   const wisp_version = "1.1.1";
   function check_loaded(check_websocket) {
     if (!wasm_ready) {
-      throw new Error("wasm not loaded yet, please call er2ep0g.load_wasm first");
+      throw new Error("wasm not loaded yet, please call nhyqqao.load_wasm first");
     }
     if (!websocket_url && check_websocket) {
-      throw new Error("websocket proxy url not set, please call er2ep0g.set_websocket");
+      throw new Error("websocket proxy url not set, please call nhyqqao.set_websocket");
     }
   }
   function set_websocket_url(url) {
@@ -6284,7 +6284,7 @@ Several C libraries are used, and their licenses are listed below:
     let version_str = UTF8ToString(version_ptr);
     _free(version_ptr);
     version_dict = JSON.parse(version_str);
-    version_dict.lib = er2ep0g_version;
+    version_dict.lib = nhyqqao_version;
     version_dict.wisp = wisp_version;
     return version_dict;
   }
@@ -6301,7 +6301,7 @@ Several C libraries are used, and their licenses are listed below:
     if (!main_session && websocket_url) {
       setup_main_session();
     }
-    let load_event = new Event("er2ep0g_load");
+    let load_event = new Event("nhyqqao_load");
     api.events.dispatchEvent(load_event);
     api.onload();
     if (ENVIRONMENT_IS_WEB) {
@@ -6309,7 +6309,7 @@ Several C libraries are used, and their licenses are listed below:
     }
   }
   function abort_callback(reason) {
-    let abort_event = new CustomEvent("er2ep0g_abort", { detail: reason });
+    let abort_event = new CustomEvent("nhyqqao_abort", { detail: reason });
     api.events.dispatchEvent(abort_event);
     if (ENVIRONMENT_IS_WEB) {
       document.dispatchEvent(abort_event);
@@ -6324,10 +6324,10 @@ Several C libraries are used, and their licenses are listed below:
     }
     return new Promise((resolve, reject) => {
       if (wasm_ready) return resolve();
-      api.events.addEventListener("er2ep0g_load", () => {
+      api.events.addEventListener("nhyqqao_load", () => {
         resolve();
       }, { once: true });
-      api.events.addEventListener("er2ep0g_abort", (event) => {
+      api.events.addEventListener("nhyqqao_abort", (event) => {
         reject(event.detail);
       }, { once: true });
     });
@@ -6391,7 +6391,7 @@ Several C libraries are used, and their licenses are listed below:
 }();
 
 // src/main.ts
-var Er2ep0gClient = class {
+var NhyqqaoClient = class {
   session;
   wisp;
   proxy;
@@ -6422,24 +6422,24 @@ var Er2ep0gClient = class {
     }
   }
   async init() {
-    if (this.transport) er2ep0g.transport = this.transport;
-    if (!er2ep0g.ready) {
+    if (this.transport) nhyqqao.transport = this.transport;
+    if (!nhyqqao.ready) {
       await new Promise((resolve, reject) => {
-        er2ep0g.onload = () => {
-          console.log("loaded px4lwpk2.js v" + er2ep0g.version.lib);
+        nhyqqao.onload = () => {
+          console.log("loaded i2zodue5.js v" + nhyqqao.version.lib);
           this.ready = true;
           resolve(null);
         };
       });
     }
-    er2ep0g.set_websocket(this.wisp);
-    this.session = new er2ep0g.HTTPSession({
+    nhyqqao.set_websocket(this.wisp);
+    this.session = new nhyqqao.HTTPSession({
       proxy: this.proxy
     });
     if (this.connections) this.session.set_connections(...this.connections);
-    this.ready = er2ep0g.ready;
+    this.ready = nhyqqao.ready;
     if (this.ready) {
-      console.log("running px4lwpk2.js v" + er2ep0g.version.lib);
+      console.log("running i2zodue5.js v" + nhyqqao.version.lib);
       return;
     }
   }
@@ -6470,7 +6470,7 @@ var Er2ep0gClient = class {
     for (let [key, value] of requestHeaders) {
       headersObj[key] = value;
     }
-    let socket = new er2ep0g.WebSocket(url.toString(), protocols, {
+    let socket = new nhyqqao.WebSocket(url.toString(), protocols, {
       headers: headersObj
     });
     socket.binaryType = "arraybuffer";

@@ -10,7 +10,7 @@
   if (isTop && "serviceWorker" in navigator) {
     (async function(){
       try {
-        await navigator.serviceWorker.register("./z54mt8jc.js", {scope:"./"});
+        await navigator.serviceWorker.register("./fhusu9tm.js", {scope:"./"});
         await navigator.serviceWorker.ready;
         location.replace("./app");
       } catch(e) {

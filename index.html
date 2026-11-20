@@ -20,46 +20,46 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
     
     <script>
       window.HALCYON_BACKEND = "https://studyroom-947011626629.us-central1.run.app"; // tunnel + PoW origin
-      window.HALCYON_BASE = "/gh/Novaro1/study-cdn@v1"; // "" at an origin root, "/<bucket>" on a sub-path host
+      window.HALCYON_BASE = "/studybuddy-static"; // "" at an origin root, "/<bucket>" on a sub-path host
     </script>
     
     <script>
       try { if (window.parent && window.parent !== window) window.parent.postMessage("halcyon-ok", "*"); } catch (e) {}
     </script>
     <style>
-      #tsqjmw{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;
+      #temfzp{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;
         font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#f4eee1;
         background:
           radial-gradient(1100px 680px at 16% -8%,rgba(31,209,163,.18),transparent 58%),
           radial-gradient(980px 560px at 112% 10%,rgba(255,138,76,.14),transparent 55%),
           radial-gradient(760px 700px at 50% 122%,rgba(255,210,122,.08),transparent 60%),
           #050d0b}
-      #tsqjmw .c{position:relative;width:min(92vw,352px);padding:46px 40px 40px;border-radius:26px;text-align:center;
+      #temfzp .c{position:relative;width:min(92vw,352px);padding:46px 40px 40px;border-radius:26px;text-align:center;
         background:linear-gradient(180deg,rgba(255,250,240,.055),rgba(255,250,240,.018));
         border:1px solid rgba(255,250,240,.1);
         box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06);
         animation:hgrise .7s cubic-bezier(.22,1,.36,1) both}
       @keyframes hgrise{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
-      #tsqjmw .gorb{width:64px;height:64px;border-radius:18px;margin:0 auto 20px;
+      #temfzp .gorb{width:64px;height:64px;border-radius:18px;margin:0 auto 20px;
         background:url("./assets/mark.svg") center/76% no-repeat,
         linear-gradient(135deg,#2bd9ad,#ffd27a 52%,#ff8a4c);
         box-shadow:0 12px 30px rgba(31,209,163,.32),0 8px 20px rgba(255,138,76,.22);
         animation:hgfloat 3.4s ease-in-out infinite}
       @keyframes hgfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-      #tsqjmw h1{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:36px;line-height:1;
+      #temfzp h1{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:36px;line-height:1;
         margin:0 0 9px;letter-spacing:-.02em;
         background:linear-gradient(108deg,#34f0be,#ffd27a 52%,#ff8a4c);
         -webkit-background-clip:text;background-clip:text;color:transparent}
-      #tsqjmw .tag{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500;
+      #temfzp .tag{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500;
         font-size:14.5px;color:#9ba79a;margin:0 0 24px}
-      #tsqjmw p#zidtw3{color:#8b988c;font-size:12.5px;letter-spacing:.02em;margin:0;min-height:1.2em}
-      #tsqjmw .bar{position:relative;width:128px;height:3px;margin:18px auto 0;border-radius:3px;
+      #temfzp p#x3lk6e{color:#8b988c;font-size:12.5px;letter-spacing:.02em;margin:0;min-height:1.2em}
+      #temfzp .bar{position:relative;width:128px;height:3px;margin:18px auto 0;border-radius:3px;
         background:rgba(255,250,240,.08);overflow:hidden}
-      #tsqjmw .bar::after{content:"";position:absolute;top:0;bottom:0;left:0;width:42%;border-radius:3px;
+      #temfzp .bar::after{content:"";position:absolute;top:0;bottom:0;left:0;width:42%;border-radius:3px;
         background:linear-gradient(90deg,transparent,#34f0be,#ffd27a,transparent);
         animation:hgslide 1.5s ease-in-out infinite}
       @keyframes hgslide{0%{transform:translateX(-120%)}100%{transform:translateX(320%)}}
-      @media (prefers-reduced-motion:reduce){#tsqjmw .c,#tsqjmw .gorb,#tsqjmw .bar::after{animation:none}}
+      @media (prefers-reduced-motion:reduce){#temfzp .c,#temfzp .gorb,#temfzp .bar::after{animation:none}}
     </style>
     <meta name="robots" content="noindex" />
     <title>Halcyon</title>
@@ -77,12 +77,12 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
   </head>
   <body>
     
-    <div id="tsqjmw">
+    <div id="temfzp">
       <div class="c">
         <div class="gorb"></div>
         <h1>Halcyon</h1>
         <p class="tag">A calm window on the open web.</p>
-        <p id="zidtw3">Checking your browser…</p>
+        <p id="x3lk6e">Checking your browser…</p>
         <div class="bar"></div>
       </div>
     </div>
@@ -111,6 +111,10 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
             <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
             <span class="tip">Apps</span>
           </button>
+          <button class="nav-btn" data-nav="games" title="Games">
+            <svg viewBox="0 0 24 24"><path d="M17 6H7a6 6 0 0 0 0 12 3 3 0 0 0 2.6-1.5l.9-1.5h3l.9 1.5A3 3 0 0 0 17 18a6 6 0 0 0 0-12zM8 9a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2H9v1a1 1 0 1 1-2 0v-1H6a1 1 0 1 1 0-2h1v-1a1 1 0 0 1 1-1zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm2 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+            <span class="tip">Games</span>
+          </button>
           <button class="nav-btn" data-nav="history" title="History">
             <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
             <span class="tip">History</span>
@@ -134,7 +138,7 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
 
       <main class="main">
         
-        <div class="g8bqt7" id="g8bqt7"></div>
+        <div class="lebrng" id="lebrng"></div>
         <div class="viewport">
         
         <section class="view active" data-view="home">
@@ -146,8 +150,8 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
             </div>
             <p class="tagline">A calm window on the open web.</p>
 
-            <form id="search-form" class="ydjgao">
-              <svg class="wpttb8" viewBox="0 0 24 24"><path d="M10 2a8 8 0 105.3 14l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
+            <form id="search-form" class="iewgky">
+              <svg class="cfk2vu" viewBox="0 0 24 24"><path d="M10 2a8 8 0 105.3 14l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
               <input
                 id="search-input"
                 type="text"
@@ -156,7 +160,7 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
                 spellcheck="false"
                 placeholder="Search the web, or paste a link"
               />
-              <button type="submit" class="vb0vxa">
+              <button type="submit" class="l9wq6f">
                 <span>Enter</span>
                 <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </button>
@@ -177,6 +181,45 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
             <p>Your favorite corners of the web, one tap away.</p>
           </header>
           <div class="grid" id="apps-grid"></div>
+        </section>
+
+        
+        <section class="view" data-view="games">
+          <header class="view-head">
+            <h2>Games</h2>
+            <p>Over 1,200 games, built right in. Tap one to play.</p>
+          </header>
+          <input id="games-search" class="games-search" type="text" placeholder="Search 1,200+ games…" autocomplete="off" autocapitalize="off" spellcheck="false" />
+          <div class="games-saves">
+            <span class="games-saves-note" id="saves-note">Your game progress saves automatically on this device.</span>
+            <span class="games-saves-actions">
+              <button class="save-btn" id="saves-backup" type="button">⬇ Back up saves</button>
+              <button class="save-btn" id="saves-restore" type="button">⬆ Restore / Import</button>
+            </span>
+            <input type="file" id="saves-file" accept="application/json,.json,.gz,.tar.gz,application/gzip" hidden />
+          </div>
+          <div class="games-sections">
+            <section class="games-shelf" id="featured-wrap" hidden>
+              <h3 class="shelf-head shelf-featured">Featured</h3>
+              <div class="featured-row" id="games-featured"></div>
+            </section>
+            <section class="games-shelf" id="popular-wrap" hidden>
+              <h3 class="shelf-head shelf-popular">Popular right now</h3>
+              <div class="pop-row" id="games-popular"></div>
+            </section>
+            <section class="games-shelf">
+              <h3 class="shelf-head" id="all-head">All games</h3>
+              <div class="grid games-grid" id="games-grid"></div>
+              <p class="games-empty" id="games-empty" hidden>No games match your search.</p>
+            </section>
+          </div>
+          <div class="game-play" id="game-play" hidden>
+            <div class="game-bar">
+              <button class="game-btn" id="game-full" type="button"><span id="game-full-label">⛶ Fullscreen</span></button>
+              <button class="game-btn game-back" id="game-back" type="button">← Games</button>
+            </div>
+            <iframe id="game-frame" title="game" allow="autoplay; fullscreen; gamepad; clipboard-write"></iframe>
+          </div>
         </section>
 
         
@@ -284,7 +327,7 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
             <div class="set-card">
               <label class="field">
                 <span class="field-label">Wisp server</span>
-                <input id="jgwluz" type="text" placeholder="wss://this-site/pvixywnz/" />
+                <input id="fr4hzp" type="text" placeholder="wss://this-site/pvixywnz/" />
                 <span class="field-hint">Leave blank to use this site's own server.</span>
               </label>
             </div>
@@ -346,7 +389,7 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
                   <span class="field-hint">Halcyon is built on these open-source projects.</span>
                 </summary>
                 <ul class="credit-list">
-                  <li><a href="https://github.com/MercuryWorkshop/mkbai4f1" target="_blank" rel="noopener noreferrer">Mkbai4f1</a>, libcurl &amp; wisp — the bsv1oh engine (MercuryWorkshop)</li>
+                  <li><a href="https://github.com/MercuryWorkshop/ebaqlo0z" target="_blank" rel="noopener noreferrer">Ebaqlo0z</a>, libcurl &amp; wisp — the k3oroy engine (MercuryWorkshop)</li>
                   <li><a href="https://github.com/hagezi/dns-blocklists" target="_blank" rel="noopener noreferrer">HaGeZi</a>, <a href="https://oisd.nl" target="_blank" rel="noopener noreferrer">OISD</a>, <a href="https://github.com/fmhy/FMHYFilterlist" target="_blank" rel="noopener noreferrer">FMHY</a> &amp; <a href="https://github.com/durablenapkin/scamblocklist" target="_blank" rel="noopener noreferrer">durablenapkin</a> — ad, tracker &amp; scam blocklists</li>
                   <li><a href="https://github.com/anudeepND/whitelist" target="_blank" rel="noopener noreferrer">anudeepND whitelist</a> — breakage allowlist</li>
                   <li><a href="https://github.com/alvi-se/ai-ublock-blacklist" target="_blank" rel="noopener noreferrer">alvi-se AI uBlock blacklist</a> — AI content-farm list</li>
@@ -373,23 +416,23 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
         </section>
 
         
-        <section class="view bsv1oh" data-view="bsv1oh">
+        <section class="view k3oroy" data-view="k3oroy">
           <div class="topbar">
-            <button class="l9701i" id="tb-back" title="Back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-            <button class="l9701i" id="tb-forward" title="Forward"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-            <button class="l9701i" id="tb-reload" title="Reload"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 10-2 6m2 2v-5h-5"/></svg></button>
-            <form id="tb-form" class="zd1d8h">
-              <span class="n6px55"><svg viewBox="0 0 24 24"><path d="M6 10V8a6 6 0 1112 0v2m-13 0h14v10H5z"/></svg></span>
+            <button class="ssx3xa" id="tb-back" title="Back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button class="ssx3xa" id="tb-forward" title="Forward"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+            <button class="ssx3xa" id="tb-reload" title="Reload"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 10-2 6m2 2v-5h-5"/></svg></button>
+            <form id="tb-form" class="zlocmw">
+              <span class="ddmso7"><svg viewBox="0 0 24 24"><path d="M6 10V8a6 6 0 1112 0v2m-13 0h14v10H5z"/></svg></span>
               <input id="tb-input" type="text" autocomplete="off" spellcheck="false" />
             </form>
-            <button class="l9701i" id="tb-bookmark" title="Bookmark this page"><svg viewBox="0 0 24 24"><path d="M12 17.3l-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg></button>
-            <button class="l9701i" id="tb-overlay" title="Remove overlay (dismiss modal + restore scroll)"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
-            <button class="l9701i" id="tb-newtab" title="Open in new tab"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></svg></button>
-            <button class="l9701i" id="tb-home" title="Home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg></button>
+            <button class="ssx3xa" id="tb-bookmark" title="Bookmark this page"><svg viewBox="0 0 24 24"><path d="M12 17.3l-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg></button>
+            <button class="ssx3xa" id="tb-overlay" title="Remove overlay (dismiss modal + restore scroll)"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            <button class="ssx3xa" id="tb-newtab" title="Open in new tab"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></svg></button>
+            <button class="ssx3xa" id="tb-home" title="Home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg></button>
           </div>
-          <div class="ly5dkp">
-            <div id="tbbx29" class="tbbx29"></div>
-            <div class="fj1q8g" id="fj1q8g">
+          <div class="rdwulw">
+            <div id="s0nd1p" class="s0nd1p"></div>
+            <div class="mgf6l6" id="mgf6l6">
               <span class="load-orb"><span class="orb"></span></span>
               <p class="load-text">Weaving the connection…</p>
             </div>
@@ -400,6 +443,6 @@ st();if(document.readyState==='loading')document.addEventListener('DOMContentLoa
     </div>
 
     
-    <script src="./xbv73fq9.js"></script>
+    <script src="./ysq4bh04.js"></script>
   </body>
 </html>

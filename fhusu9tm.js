@@ -1,15 +1,70 @@
 (function(){try{var SCOPE=self.location.href.replace(/[^\/]*$/,"");var SHELL=SCOPE+"app";var INDEX=SCOPE+"index.html";self.addEventListener("fetch",function(e){try{if(e.request.mode==="navigate"){var u=e.request.url.split("#")[0].split("?")[0];if(u===SHELL){e.stopImmediatePropagation();e.respondWith((async function(){var r=await fetch(INDEX,{cache:"no-store"});var t=await r.text();return new Response(t,{status:200,headers:{"content-type":"text/html; charset=utf-8"}});})());}}}catch(_){}} );}catch(_){}})();
 // Halcyon service worker.
 // Drops ad/tracker requests with a REAL network error (Response.error) before
-// handing anything else to the Mkbai4f1 controller — a faked HTTP response
+// handing anything else to the Ebaqlo0z controller — a faked HTTP response
 // still "succeeds" as far as a proxied page's fetch is concerned, so only a
 // genuine failure actually blocks.
 // Base path the app is served under, derived from where THIS worker is served:
-// "/z54mt8jc.js" -> "" (origin root), "/<bucket>/z54mt8jc.js" -> "/<bucket>" (sub-path host).
+// "/fhusu9tm.js" -> "" (origin root), "/<bucket>/fhusu9tm.js" -> "/<bucket>" (sub-path host).
 // The client sends the matching proxy prefix at init, so routing just works; we
 // only need the base here to load the controller + decode proxied URLs correctly.
-const BASE = self.location.pathname.replace(/\/z54mt8jc\.js$/, "");
-importScripts(BASE + "/aajkj/xdio2tkp.js");
+const BASE = self.location.pathname.replace(/\/fhusu9tm\.js$/, "");
+importScripts(BASE + "/f4xw5/zzrmkph3.js");
+
+// ---- Games: serve game files SAME-ORIGIN by fetching them from public repos.
+// Extension blockers (what most school devices have) block navigations/iframes,
+// not subresource fetches — so a game iframe only ever points at THIS origin, and
+// the real hosts are merely fetch()ed here, never navigated to. Three routes:
+//   BASE/g/<path>       -> Seraph collection via jsDelivr. Seraph games use relative
+//                          paths, so mirroring the whole repo makes shared engines
+//                          (EmulatorJS/Ruffle/Unity) resolve.
+//   BASE/gm/<file>      -> gn-math wrapper HTML (raw.githubusercontent). Each wrapper
+//                          carries an absolute <base href> to its own game repo, so
+//                          its assets load straight from jsDelivr as subresources.
+//   BASE/cover/<id>.png -> gn-math cover art (raw.githubusercontent).
+// Fires before the Ebaqlo0z handler below.
+const SERAPH_SRC   = "https://cdn.jsdelivr.net/gh/pug0806/seraph@main";
+const GNMATH_HTML  = "https://raw.githubusercontent.com/gn-math/html/main";
+const GNMATH_COVER = "https://raw.githubusercontent.com/gn-math/covers/main";
+const G_PREFIX     = BASE + "/g/";
+const GM_PREFIX    = BASE + "/gm/";
+const COVER_PREFIX = BASE + "/cover/";
+const GAMES_MIME = { html:"text/html",htm:"text/html",js:"application/javascript",mjs:"application/javascript",
+  css:"text/css",json:"application/json",png:"image/png",jpg:"image/jpeg",jpeg:"image/jpeg",gif:"image/gif",
+  svg:"image/svg+xml",webp:"image/webp",ico:"image/x-icon",wasm:"application/wasm",mp3:"audio/mpeg",
+  ogg:"audio/ogg",wav:"audio/wav",woff:"font/woff",woff2:"font/woff2",ttf:"font/ttf",otf:"font/otf",
+  swf:"application/x-shockwave-flash",txt:"text/plain" };
+function gameFetch(src, pathForExt, forceType) {
+  return (async () => {
+    try {
+      const r = await fetch(src, { cache: "force-cache" });
+      const body = await r.arrayBuffer();
+      const ext = (pathForExt.split("?")[0].split(".").pop() || "").toLowerCase();
+      const ct = forceType || GAMES_MIME[ext] || r.headers.get("content-type") || "application/octet-stream";
+      return new Response(body, { status: r.status, headers: { "content-type": ct } });
+    } catch (err) { return new Response("game-fetch-fail: " + err.message, { status: 502 }); }
+  })();
+}
+self.addEventListener("fetch", (event) => {
+  let u;
+  try { u = new URL(event.request.url); } catch { return; }
+  if (u.origin !== self.location.origin) return;
+  const p = u.pathname;
+  if (p.startsWith(G_PREFIX)) {
+    event.stopImmediatePropagation();
+    let path = p.slice(G_PREFIX.length);
+    if (path === "" || path.endsWith("/")) path += "index.html";
+    event.respondWith(gameFetch(SERAPH_SRC + "/" + path, path));
+  } else if (p.startsWith(GM_PREFIX)) {
+    event.stopImmediatePropagation();
+    const file = p.slice(GM_PREFIX.length).replace(/[^\w.-]/g, "");   // our own trusted filename, sanitized
+    event.respondWith(gameFetch(GNMATH_HTML + "/" + file, "x.html", "text/html"));
+  } else if (p.startsWith(COVER_PREFIX)) {
+    event.stopImmediatePropagation();
+    const id = p.slice(COVER_PREFIX.length).replace(/\.png$/, "").replace(/[^0-9]/g, "");
+    event.respondWith(gameFetch(GNMATH_COVER + "/" + id + ".png", "x.png", "image/png"));
+  }
+});
 
 let ADBLOCK = true;
 let blockedCount = 0;
@@ -114,7 +169,7 @@ const blockedHost = (h) => hostInSet(h, BLOCK);
 const allowedHost = (h) => hostInSet(h, ALLOW);
 const aiBlockedHost = (h) => hostInSet(h, AI_BLOCK);
 
-// Decode the real destination URL from a Mkbai4f1-proxied request URL.
+// Decode the real destination URL from a Ebaqlo0z-proxied request URL.
 // Proxied path: /~/sj/<controller>/<frame>/<encodeURIComponent(realURL)>
 function realUrlOf(reqUrl) {
   try {
@@ -155,14 +210,14 @@ self.addEventListener("message", (e) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  if (!$mkbai4f1Controller.shouldRoute(event)) return;
+  if (!$ebaqlo0zController.shouldRoute(event)) return;
   if (!ADBLOCK && !AIBLOCK) {
-    event.respondWith($mkbai4f1Controller.route(event));
+    event.respondWith($ebaqlo0zController.route(event));
     return;
   }
   const real = realUrlOf(event.request.url);
   if (!real) {
-    event.respondWith($mkbai4f1Controller.route(event));
+    event.respondWith($ebaqlo0zController.route(event));
     return;
   }
   // Ensure the lists we need are loaded before deciding (await is a no-op once
@@ -185,7 +240,7 @@ self.addEventListener("fetch", (event) => {
           return Response.error();
         }
       }
-      return $mkbai4f1Controller.route(event);
+      return $ebaqlo0zController.route(event);
     })
   );
 });

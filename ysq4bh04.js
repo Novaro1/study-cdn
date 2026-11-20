@@ -5,14 +5,14 @@
 // gates server-side, so this only runs where window.HALCYON_BACKEND is set.)
 (function () {
   var B = (window.HALCYON_BACKEND || "").replace(/\/+$/, "");
-  var statusEl = document.getElementById("zidtw3");
-  var gateEl = document.getElementById("tsqjmw");
+  var statusEl = document.getElementById("x3lk6e");
+  var gateEl = document.getElementById("temfzp");
   function setStatus(m) { if (statusEl) statusEl.textContent = m; }
   function hideGate() { if (gateEl) gateEl.style.display = "none"; }
   function wsBase() { return B.replace(/^http/, "ws"); }
   function setWisp(token) {
     // Token as a path segment (not ?t=) so the wisp URL ends with "/", which the
-    // er2ep0g transport requires; the backend reads it from /pvixywnz/<token>/.
+    // nhyqqao transport requires; the backend reads it from /pvixywnz/<token>/.
     try { localStorage.setItem("halcyon:wisp", wsBase() + "/pvixywnz/" + token + "/"); } catch (e) {}
   }
   function storeSession(token) {
@@ -27,12 +27,12 @@
   }
   function loadApp() {
     // Relative so they resolve under the origin root OR a sub-path (e.g. a GCS
-    // bucket). pbxp0i3r.js reads window.HALCYON_BASE for its absolute runtime/SW paths.
+    // bucket). dkdz90ve.js reads window.HALCYON_BASE for its absolute runtime/SW paths.
     var p = document.createElement("script");
-    p.src = "./pbxp0i3r.js";
+    p.src = "./dkdz90ve.js";
     p.onload = function () {
       var a = document.createElement("script");
-      a.src = "./i4b96mk5.js";
+      a.src = "./d3cufy2b.js";
       a.onload = hideGate;
       document.body.appendChild(a);
     };
